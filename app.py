@@ -14,7 +14,6 @@ FASTAPI_URL = os.getenv("FASTAPI_URL", "http://127.0.0.1:8000/predict")
 HF_MODEL_URL = "https://api-inference.huggingface.co/models/kaisarhossain/diabetes-risk-pred-kaisar-v1.1"
 HF_API_TOKEN = os.getenv("HF_TOKEN")  # set in your environment if using HF
 
-
 # ------------------------
 # Helper functions
 # ------------------------
@@ -117,16 +116,19 @@ def input_form(prefix=""):
 if page == "Home":
     st.title("🩺 Diabetes Risk Prediction — Dashboard")
     st.markdown(
-        "This dashboard enables to predict diabetic risk based on eight major parameters. "
-        "You can use a local FastAPI model (recommended) or call my Hugging Face hosted model for the risk prediction."
+        "This Streamlit application provides an interactive, user-friendly interface for predicting diabetes risk based on key medical, demographic, and lifestyle indicators. Users can input values such as HbA1c, glucose levels, BMI, blood pressure, age, and activity levels, and the app instantly communicates with a deployed machine learning model to classify whether the user is at risk of diabetes. The app also displays the predicted probability of risk, making the output easy to interpret for both clinical and non-clinical users. Designed with clean navigation and responsive layout, the tool serves as a practical decision-support system for health awareness, early detection, and proactive management."
     )
+    st.markdown("---")
+    st.markdown("You can use a local FastAPI model (recommended) or call my Hugging Face hosted model for the risk prediction.")
     st.markdown("---")
     st.subheader("How to use")
     st.markdown("""
-    1. Start the FastAPI server runs on port 8000 (optional): `uvicorn fastapi_server:app --reload`  
-    2. Use Hugging Face inference and uploaded model.  
+    1. Follow GitHub README.md to run locally. (Start the FastAPI server runs on port 8000 (optional): `uvicorn fastapi_server:app --reload`)  
+    2. Or use Hugging Face inference using uploaded model.  
     3. Go to **Predict (Single)** for per-patient predictions, or **Batch Predict** to upload CSV for bulk scoring.
     """)
+    st.markdown("---")
+    st.markdown("For detail istruction, check my GitHub repository: https://github.com/kaisarhossain/Diabetes-Risk-Prediction/blob/main/README.md")
 
 # ------------------------
 # Page: Data Preview
